@@ -1,0 +1,278 @@
+<html>
+    <head>
+        <title>Cycloid Studio</title>
+        
+        <style>
+            body {
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            a {
+                text-decoration: none;
+            }
+            a:visited {
+                color:black;
+            }
+            .menu {
+                background-color: #ffffff;
+            }
+            .logo {
+                display: inline-block;
+                vertical-align: top;
+                width: 50px;
+                height: 50px;
+                margin-left: 10px;
+                margin-right: 5px;
+            }
+            .desktop {
+                cursor: pointer;
+                display: inline-block;
+                padding: 20px 20px 20px 30px;
+            }
+            .mobile {
+                cursor: pointer;
+                display: none;
+                padding: 20px 20px 17px 20px;
+            }
+            .mobile > span {
+                background: black;
+                border-radius: 20%;
+                width: 38px;
+                height: 3px;
+                margin-bottom: 3px;
+                display: block;
+                width: 30px;
+            }
+            /* Responsive Rules */
+            @media screen and (max-width: 600px) {
+                .desktop {
+                    display: none;
+                }
+                .mobile {
+                    display:inline-block;
+                }
+            }
+            @media screen and (max-width: 520px) {
+                .Team > .grid-container {
+                    display:flex;
+                }
+                .item {
+                    border-radius: 50%;
+                }
+            }
+            .bgimg {
+                background: url(cover.JPEG);
+                background-position: center;
+                background-size: cover;
+                color: #ffffff;
+                height: 80%;
+                position: relative;
+                text-align: center; 
+            }
+            header {
+                font-size: 23px;
+                letter-spacing: 10px;
+                padding: 150px 20px 20px 20px;
+            }
+            h2 {
+                letter-spacing: 3px;
+            }
+            p {
+                line-height: 26px;
+            }
+            .bgimg > p {
+                padding: 0px 50px 0px 50px;
+            }
+            .Introduction {
+                padding: 20px 20px 40px 50px;
+            }
+            .Data {
+                background-color: rgba(248, 248, 238, 0.623);
+                padding: 20px 20px 20px 50px;
+            }
+            .Annotation {
+                padding: 20px 20px 40px 50px;
+            }
+            .Future {
+                background-color: rgba(248, 248, 238, 0.623);
+                padding: 20px 20px 20px 50px;
+            }
+            .Result {
+                background-color: rgba(248, 248, 238, 0.623);
+                padding: 40px 20px 20px 50px;
+            }
+            img.pic {
+                height: 50%;
+  width: 50%;
+            }
+            .Next {
+                padding: 20px 20px 40px 50px;
+            }
+            .pic {
+                box-shadow: 5px 5px 5px grey;
+                height: auto;
+                margin-bottom: 30px;
+                margin-left: 12%;
+                width: 70%;
+            }
+            .Team {
+                padding: 20px 20px 40px 50px;
+            }
+            .Team > .grid-container {
+                display: inline-grid;
+                grid-template-columns: 200px 200px;
+                grid-row: auto auto;
+                grid-column-gap: 20px;
+                grid-row-gap: 20px;
+                margin-left: 10%;
+                width: 50%;
+            }
+            .item {
+                border-radius: 50%;
+                display:flex;
+            }
+            .Contact {
+                background-color: rgba(248, 248, 238, 0.623);
+                padding: 20px 20px 20px 50px;
+            }
+            input[type=text], select, textarea {
+                width: 100%; /* Full width */
+                padding: 12px; /* Some padding */  
+                border: 1px solid #ccc; /* Gray border */
+                border-radius: 4px; /* Rounded borders */
+                box-sizing: border-box; /* Make sure that padding and width stays in place */
+                margin-top: 6px; /* Add a top margin */
+                margin-bottom: 16px; /* Bottom margin */
+                resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+            }
+            input[type=submit] {
+                background-color: rgb(102, 101, 94);
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+ 
+    <body>
+        <div class="menu">
+            <div class="desktop"><a href="#Introduction">Introduction</a></div>
+            <div class="desktop"><a href="#Data">Data Collection</a></div>
+            <div class="desktop"><a href="#Annotation">Annotation</a></div>
+            <div class="desktop"><a href="#Future">Future Plan</a></div>
+            <div class="desktop"><a href="#Team">Meet the Team</a></div>
+            <div class="desktop"><a href="#Contact">Contact</a></div>
+            <div class="mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="bgimg">
+            <header><h1>Aggression Prediction</h1></header>
+            <p>Collecte data, analyze data, use data, and make sense of it.</p>
+            <p>Use Machine Learning to create model on predict police aggression.</p>
+        </div>
+
+        <a name="Introduction">
+            <div class="Introduction">
+                <h2>Introduction</h2>
+                <p>
+                Human beings have a rather unique ability to discern the emotional states of one another via their unconscious perception, processing, and identification of the specific acoustic features associated with particular emotions. 
+                <br><br/>This is especially true in the case of emotional states that are rooted in aggression. We know this to be the case because similar suggestions have been made by the likes of Klaus Scherer who suggested that emotional states like fear and anger could be associated with a higher vocal pitch due to high levels of epinephrine in the body that cause the vocal cords to tremble. 
+                <br><br/>Thus, Scherer observed that the trembling of the vocal cords produced a higher pitch than was typical of speech generated in a state of rest or non-arousal. Scherer’s findings led to the basis of computationally understood and discerned emotion being measured and perceived on a basis of “valence and arousal”; Our findings aim to set a new paradigm for the computational understanding of emotion.  
+                <br><br/>This project aimed to identify the acoustic features associated with aggression in police officers and citizens and determine whether one could use vocal cues to predict violent behavior, on the part of the officers towards citizens. In essence, we wanted to prove that the voice can be used as a tool to predict human behavior in order to find and potentially prevent situations of police brutality. 
+                </p>
+            </div>
+        </a>
+
+        <a name="Data">
+            <div class="Data">
+                <h2>Data Collection</h2>
+                <p>
+                For this project, we collected video clips of police-citizen interactions from YouTube. Each video was required to:
+                <br><br/>- Contain an interaction between a police officer and citizen
+                <br><br/>- Contain dialogue (from either the police officer or citizen, not a third party)
+                <br><br/>To do this, we scraped video URLs of police interactions (primarily police body cam videos) from YouTube. We then implemented a script that identified dialogue within each video by utilizing their associated auto generated captions and split the videos into 1 - 5 seconds segments. Each of these clips was stored in a Microsoft Azure Blob Storage instance. We acknowledge that since we relied on YouTube data as our source of police/citizen interactions, there may be sample bias. 
+                </p>            
+            </div>
+        </a>
+
+        <a name="Annotation">
+            <div class="Annotation">
+                <h2>Annotation</h2>
+                <p>Apart from acoustic features which were extracted automatically, we annotated each clip for physical elements including the officer and citizen’s weapon use, race, gender, camera use, dialogue (in text), emotionality and aggression. In order to standardize the subjective features, aggression and emotionality, we developed a scale for each. For emotionality, we relied on a bipolar scale; the sign of the number indicates the type of emotion, positive or negative, and the magnitude represents how consciously expressive the individual is of the emotion. For aggression, we relied on Yudofsky’s Overt Aggression Scale (OAS), commonly used in clinical psychology. To streamline this process we developed a user interface (using Streamlit) that displayed the video associated with each clip. 
+                </p>
+                <div><img class="pic" src="annotation.png" height="10", width="10"></div>
+            </div>
+        </a>
+
+        <a name="Future">
+            <div class="Future">
+                <h2>Future Analysis</h2>
+                <p>
+                With annotated data, we analyzed each of the audio segments using Soundsig, an open-source API that extracts features such as fund, kurtosis time, and entropy time from audios. 
+                Shown below are visualizations of the performed spectral analysis. Given the high-dimensionality of our data we relied on one-way anova, PCA and k-fold cross validation to extract statistically significant features. 
+                </p>
+            </div>
+        </a>
+
+        <a name="Result">
+            <div class="Result">
+                <h2>Result</h2>
+                <div class="show-mobile">
+                    <div><img class="pic" src="spec.png" height="10", width="10"></div>
+                    <div><img class="pic" src="freq.png" height="10", width="14"></div>
+                </div>    
+            </div>
+            </a>
+
+        <a name="Next">
+            <div class="Next">
+                <h2>Next Steps</h2>
+                <p>
+                Currently our analysis is limited to a collection of 1000 video/audio samples and relies on classical machine learning techniques. To improve the predictive power of our model we plan to utilize deep learning and specifically a recurrent neural network. To accomplish this, we plan on collecting more than 100,000 audio samples from Youtube and if granted, directly from police departments and crowdsourcing the annotation process using InnoData. 
+                </p>
+            </div>
+        </a>
+
+        <a name="Team">
+        <div class="Team">
+            <h2>Meet the Team</h2>
+            <div class="grid-container">
+                <div><img class="item" src="kai.png" height="150", width="150"><br>Kai Koerber</div>
+                <div><img class="item" src="rima.png" height="150", width="150"><br>Rima San Pietro</div>
+                <div><img class="item" src="zoey.png" height="150", width="150"><br>Zoey Sun</div>
+                <div><img class="item" src="kaelan.png" height="150", width="150"><br>Kaelan Nettleship</div>
+                <div><img class="item" src="shelden.png" height="150", width="150"><br>Shelden Shi</div>
+            </div>
+        </div>
+        </a>
+
+        <a name="Contact">
+        <div class="Contact">
+            <h2>Contact</h2>
+            <div class="container">
+                <form> 
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name..">
+                    <br>
+                    <label for="Email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Your email name..">
+                    <br>
+                    <label for="message">Subject</label>
+                    <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>                
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+        </a>
+
+    </body>
+    <script>
+    </script>
+</html>
