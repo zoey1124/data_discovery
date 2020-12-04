@@ -36,6 +36,10 @@
                 display: inline-block;
                 padding: 20px 20px 20px 30px;
             }
+            #desktop:hover {
+                background-color: rgb(203, 152, 104); /* Add a dark-grey background on hover */
+                color: white;
+            }
             .mobile {
                 cursor: pointer;
                 display: none;
@@ -187,12 +191,12 @@
  
     <body>
         <div class="menu">
-            <div class="desktop"><a href="#Introduction">Introduction</a></div>
-            <div class="desktop"><a href="#Data">Data Collection</a></div>
-            <div class="desktop"><a href="#Annotation">Annotation</a></div>
-            <div class="desktop"><a href="#Future">Future Plan</a></div>
-            <div class="desktop"><a href="#Team">Meet the Team</a></div>
-            <div class="desktop"><a href="#Contact">Contact</a></div>
+            <div class="desktop" id="desktop"><a href="#Introduction">Introduction</a></div>
+            <div class="desktop" id="desktop"><a href="#Data">Data Collection</a></div>
+            <div class="desktop" id="desktop"><a href="#Annotation">Annotation</a></div>
+            <div class="desktop" id="desktop"><a href="#Future">Future Plan</a></div>
+            <div class="desktop" id="desktop"><a href="#Team">Meet the Team</a></div>
+            <div class="desktop" id="desktop"><a href="#Contact">Contact</a></div>
             <div class="mobile">
                 <span></span>
                 <span></span>
