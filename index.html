@@ -95,8 +95,16 @@
             .bgimg > p {
                 padding: 0px 50px 0px 50px;
             }
+            .words {
+                /* top right bottom left */
+                padding: 0px 50px 20px 50px;
+            }
+            .titles{
+                padding-left: 50px;
+                padding-top: 10px;
+            }
             .Introduction {
-                padding: 20px 20px 40px 50px;
+                padding: 20px 50px 20px 50px;
             }
             .Data {
                 background-color: rgba(248, 248, 238, 0.623);
@@ -132,7 +140,7 @@
             }
             .Team > .grid-container {
                 display: inline-grid;
-                grid-template-columns: 200px 200px;
+                grid-template-columns: 200px 200px 200px 200px 200px;
                 grid-row: auto auto;
                 grid-column-gap: 20px;
                 grid-row-gap: 20px;
@@ -206,57 +214,78 @@
         </div>
 
         <div class="bgimg">
-            <header><h1>Aggression Prediction</h1></header>
-            <p>Collecte data, analyze data, use data, and make sense of it.</p>
-            <p>Use Machine Learning to create model on predict police aggression.</p>
+            <header><h1>Project AEI</h1></header>
+            <div class="words">
+                <p>Using A.I. and Real-Time Data for the Development of An early warning system for public safety and the recognition of emotions.</p>
+             
+                <p>The main objective of this UC Berkeley research project is to use emotion recognition software to both predict physical behaviors and to create a mindfulness platform.</p>
+            </div>
         </div>
 
         <a name="Introduction">
             <div class="Introduction">
-                <h2>Introduction</h2>
-                <p>
-                Human beings have a rather unique ability to discern the emotional states of one another via their unconscious perception, processing, and identification of the specific acoustic features associated with particular emotions. 
-                <br><br/>This is especially true in the case of emotional states that are rooted in aggression. We know this to be the case because similar suggestions have been made by the likes of Klaus Scherer who suggested that emotional states like fear and anger could be associated with a higher vocal pitch due to high levels of epinephrine in the body that cause the vocal cords to tremble. 
-                <br><br/>Thus, Scherer observed that the trembling of the vocal cords produced a higher pitch than was typical of speech generated in a state of rest or non-arousal. Scherer’s findings led to the basis of computationally understood and discerned emotion being measured and perceived on a basis of “valence and arousal”; Our findings aim to set a new paradigm for the computational understanding of emotion.  
-                <br><br/>This project aimed to identify the acoustic features associated with aggression in police officers and citizens and determine whether one could use vocal cues to predict violent behavior, on the part of the officers towards citizens. In essence, we wanted to prove that the voice can be used as a tool to predict human behavior in order to find and potentially prevent situations of police brutality. 
-                </p>
+                <div class="titles">
+                    <h2>Introduction</h2>
+                </div>
+                <div class="words">
+                    <p>
+                    Human beings have a rather unique ability to discern the emotional states of one another via their unconscious perception, processing, and identification of the specific acoustic features associated with particular emotions. 
+                    <br><br/>This is especially true in the case of emotional states that are rooted in aggression. We know this to be the case because similar suggestions have been made by the likes of Klaus Scherer who suggested that emotional states like fear and anger could be associated with a higher vocal pitch due to high levels of epinephrine in the body that cause the vocal cords to tremble. 
+                    <br><br/>Thus, Scherer observed that the trembling of the vocal cords produced a higher pitch than was typical of speech generated in a state of rest or non-arousal. Scherer’s findings led to the basis of computationally understood and discerned emotion being measured and perceived on a basis of “valence and arousal”; Our findings aim to set a new paradigm for the computational understanding of emotion.  
+                    <br><br/>This project aimed to identify the acoustic features associated with aggression in police officers and citizens and determine whether one could use vocal cues to predict violent behavior, on the part of the officers towards citizens. In essence, we wanted to prove that the voice can be used as a tool to predict human behavior in order to find and potentially prevent situations of police brutality. 
+                    </p>
+                </div>
             </div>
         </a>
 
         <a name="Data">
             <div class="Data">
-                <h2>Data Collection</h2>
+                <div class="titles">
+                    <h2>Data Collection</h2>
+                </div>
+                <div class="words">
                 <p>
                 For this project, we collected video clips of police-citizen interactions from YouTube. Each video was required to:
                 <br><br/>- Contain an interaction between a police officer and citizen
                 <br><br/>- Contain dialogue (from either the police officer or citizen, not a third party)
                 <br><br/>To do this, we scraped video URLs of police interactions (primarily police body cam videos) from YouTube. We then implemented a script that identified dialogue within each video by utilizing their associated auto generated captions and split the videos into 1 - 5 seconds segments. Each of these clips was stored in a Microsoft Azure Blob Storage instance. We acknowledge that since we relied on YouTube data as our source of police/citizen interactions, there may be sample bias. 
-                </p>            
+                </p>  
+                </div>          
             </div>
         </a>
 
         <a name="Annotation">
             <div class="Annotation">
-                <h2>Annotation</h2>
-                <p>Apart from acoustic features which were extracted automatically, we annotated each clip for physical elements including the officer and citizen’s weapon use, race, gender, camera use, dialogue (in text), emotionality and aggression. In order to standardize the subjective features, aggression and emotionality, we developed a scale for each. For emotionality, we relied on a bipolar scale; the sign of the number indicates the type of emotion, positive or negative, and the magnitude represents how consciously expressive the individual is of the emotion. For aggression, we relied on Yudofsky’s Overt Aggression Scale (OAS), commonly used in clinical psychology. To streamline this process we developed a user interface (using Streamlit) that displayed the video associated with each clip. 
-                </p>
+                <div class="titles">
+                    <h2>Annotation</h2>
+                </div>
+                <div class="words">
+                    <p>Apart from acoustic features which were extracted automatically, we annotated each clip for physical elements including the officer and citizen’s weapon use, race, gender, camera use, dialogue (in text), emotionality and aggression. In order to standardize the subjective features, aggression and emotionality, we developed a scale for each. For emotionality, we relied on a bipolar scale; the sign of the number indicates the type of emotion, positive or negative, and the magnitude represents how consciously expressive the individual is of the emotion. For aggression, we relied on Yudofsky’s Overt Aggression Scale (OAS), commonly used in clinical psychology. To streamline this process we developed a user interface (using Streamlit) that displayed the video associated with each clip. 
+                    </p>
+                </div>
                 <div><img class="pic" src="annotation.png" height="10", width="10"></div>
             </div>
         </a>
 
         <a name="Future">
             <div class="Future">
-                <h2>Future Analysis</h2>
+                <div class="titles">
+                    <h2>Future Analysis</h2>
+                </div>
+                <div class="words">
                 <p>
                 With annotated data, we analyzed each of the audio segments using Soundsig, an open-source API that extracts features such as fund, kurtosis time, and entropy time from audios. 
                 Shown below are visualizations of the performed spectral analysis. Given the high-dimensionality of our data we relied on one-way anova, PCA and k-fold cross validation to extract statistically significant features. 
                 </p>
+                </div>
             </div>
         </a>
 
         <a name="Result">
             <div class="Result">
-                <h2>Result</h2>
+                <div class="titles">
+                    <h2>Result</h2>
+                </div>
                 <div class="show-mobile">
                     <div><img class="pic" src="spec.png" height="10", width="10"></div>
                     <div><img class="pic" src="freq.png" height="10", width="14"></div>
@@ -266,10 +295,14 @@
 
         <a name="Next">
             <div class="Next">
-                <h2>Next Steps</h2>
+                <div class="titles">
+                    <h2>Next Steps</h2>
+                </div>
+                <div class="words">
                 <p>
                 Currently our analysis is limited to a collection of 1000 video/audio samples and relies on classical machine learning techniques. To improve the predictive power of our model we plan to utilize deep learning and specifically a recurrent neural network. To accomplish this, we plan on collecting more than 100,000 audio samples from Youtube and if granted, directly from police departments and crowdsourcing the annotation process using InnoData. 
                 </p>
+                </div>
             </div>
         </a>
 
