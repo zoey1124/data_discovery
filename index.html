@@ -7,7 +7,20 @@
                 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                 margin: 0;
                 padding: 0;
+                animation: fadeInAnimation ease 3s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
             }
+            /* make page transition smooth! */
+            @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+            }
+
             html {
                 scroll-behavior: smooth;
             }
@@ -80,56 +93,40 @@
                 background-color: rgba(255, 246, 230, 0.479);
                 padding: 20px 40px 20px 60px; 
             }
-            .spec-container {
-                transition: all 0.5s ease;
-                position: relative;
-                margin-left: 7%;
-                transition: opacity 0.5s ease-in-out 0s;
-                /* width: 200px;
-                height: 300px; */
-            }
-            .spec-container .after {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                /* display: none; */
-                transition: opacity 0.2s ease-in-out 0s;
-                opacity: 0;
-                color: #FFF;
-                text-align: center; 
-                background: rgba(255, 255, 255, 0.797);
-            }
-            .spec-container:hover .after {
-                opacity: 0.95;
-                display: block;
-            }
-
-            .spec-container > .after > .text {
-                position: relative;
-                top: 45%;
-                font-size: 18px;
-                color: black;
-            }
 
             .Progress > .progress-container {
                 display: inline-grid;
                 grid-template-columns: 48% 48%;
                 grid-template-rows: 70%;
                 grid-row: auto auto;
+                grid-template-rows: 400px;
             }
             img.pic {
                 height: 100%;
                 width: 100%;
                 box-shadow: 5px 5px 5px grey;
             }
-            img.ann-pic {
-                height: 60%;
-                width: 50%;
-                box-shadow: 5px 5px 5px grey;
-                margin-left: 20%;
+
+            /* Container for neural net picture and text */
+            .pic-words-container {
+                margin: 30px 250px 20px 200px;  
+                /* For debugging purpose: make the box show! uncomment to see! */
+                /* border: 5px solid rgba(51, 51, 51, 0.589); */
+                overflow: auto
             }
+            .neuralnet-pic {
+                float: left
+            }
+            .neuralnet-pic img {
+                display: block
+            }
+            .neural-net-text {
+                margin-left: 450px;
+                margin-top: 70px;
+                margin-right: 50px;
+                justify-content: center;
+            }
+
             .Team > .grid-container {
                 display: inline-grid;
                 grid-template-columns: 20% 20% 20% 20% 20%;
@@ -143,9 +140,39 @@
                 margin-left: 5px;
             }
             .item {
+                cursor: pointer;
                 border-radius: 16%;
                 display:flex;
             }
+            .bio{
+                width:300px;
+                height:300px;
+                position: fixed;
+                background-color: rgb(209, 197, 170);
+                top: 45%;
+                left: 45%;
+                transition: opacity 0.3s ease-in-out 0s;
+                margin-top: -100px;
+                margin-left: -100px;
+                opacity: 0%;
+                /* the following three make things center!*/
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 20px 10px 20px;
+                line-height: 30px;
+            }
+
+            /* minor bug here */
+            /* .Team > .ppl-container:hover .bio {
+                opacity: 100%;
+                /* the following three make things center!*/
+                /* display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 20px 10px 20px;
+                line-height: 30px;
+            } */
 
             #myBtn {
                 display: none; /* Hidden by default */
@@ -175,9 +202,9 @@
         <div class="menu">
             <div class="desktop" id="desktop"><a href="#Introduction">Introduction</a></div>
             <div class="desktop" id="desktop"><a href="#Data">Data Collection</a></div>
-            <div class="desktop" id="desktop"><a href="#Annotation">Annotation</a></div>
             <div class="desktop" id="desktop"><a href="#Progress">Progress</a></div>
             <div class="desktop" id="desktop"><a href="#Team">Meet our Team</a></div>
+            <div class="desktop" id="desktop"><a href="fall2020.html">Archive</a></div>
             </div>
         </div>
 
@@ -232,30 +259,29 @@
                     <a href="fall2020.html"><p>Check what we did in Fall 2020!</p></a>
                 </div>
 
-                <div class="words">
-                <p>
-                Currently, we are training a neural network model based on MEL spectrogram information generated from audio data.
-                We found that the model that utilized a Transformer to help analyze the MEL spectrogram had the highest accuracy. Our plan is to use this model architecture and tune parameters as needed so that it performs well on a larger dataset.
-                </p>
+                <div class="pic-words-container">
+                    <dic class="neuralnet-pic">
+                        <img src="neuralnet.png">
+                    </dic>
+
+                    <div class="neural-net-text">
+                        <p>Currently, we are training a neural network model based on MEL spectrogram information generated from audio data.
+                        <br>
+                        <br>
+                        We found that the model that utilized a Transformer to help analyze the MEL spectrogram had the highest accuracy. 
+                        <br>
+                        <br>
+                        Our plan is to use this model architecture and tune parameters as needed so that it performs well on a larger dataset.
+                        <br>
+                        <br>
+                        We concatenate two models, one is Transformer encoder, the other is multiple layers of CNN models, together.
+                        <br>
+                        <br>
+                        We choose Cross-entropy loss to train model with backpropagation, and use softmax to make the classify into 7 emotion categories, 
+                        which is Anger, Disgus, Fearful, Happy, Sad, Neutral, and Surprise.
+                        </p>
+                    </div>
                 </div>
-
-                <div class="progress-container">
-                    <div class="spec-container">
-                        <div><img class="pic" src="spec.png" height="10", width="10"></div>
-                        <div class="after">
-                            <div class="text">
-                                Generates a MEL spectrogram from the given audio data.<br>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="spec-container">
-                        <div><img class="pic" src="freq.png" height="10", width="14"></div>
-                        <div class="after">
-                            <div class="text">Transform sound to a log scale of frequency.</div>
-                        </div>
-                    </div>
-                </div> 
 
             </div>
         </a>
@@ -267,29 +293,81 @@
             </div>
 
             <div class="grid-container">
-                <div><img class="item" src="bio/kai.png" height="150", width="150"><br>
-                    <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;Kai Koerber</div></div>
-                <div><img class="item" src="bio/rima.jpg" height="150", width="150"><br>
-                    <div class="name">Rima San Pietro</div></div>
-                <div><img class="item" src="bio/zoey.png" height="150", width="150"><br>
-                    <div class="name">Zoey Mengzhu Sun</div></div>
-                <div><img class="item" src="bio/kaelan.png" height="150", width="150"><br>
-                    <div class="name">Kaelan Nettleship</div></div>
-                <div><img class="item" src="bio/shelden.png" height="150", width="150"><br>
-                    <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;Shelden Shi</div></div>
-                <div><img class="item" src="bio/vrishab.jpg" height="150", width="150"><br>
-                    <div class="name">Vrishab Madduri</div></div>
-                <div><img class="item" src="bio/jasper.jpg" height="150", width="150"><br>
-                    <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jasper Hu</div></div>
-                <div><img class="item" src="bio/jessica.jpg" height="150", width="150"><br>
-                    <div class="name">&nbsp;&nbsp;Jessica Garcia</div></div>
-                <div><img class="item" src="bio/steven.png" height="150", width="150"><br>
-                    <div class="name">&nbsp;Steven Chen</div></div>
-                <div><img class="item" src="bio/varun.jpg" height="150", width="150"><br>
-                    <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Varun Jadia</div></div>
-                <div><img class="item" src="bio/karina.jpg" height="150", width="150"><br>
-                    <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Karina Le</div></div>
+                <div>
+                    <img class="item" src="bio/kai.png" height="150", width="150"><br>
+                    <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;Kai Koerber</div>
+                </div>
+
+                <div class="ppl-container">
+                    <img class="item" src="bio/rima.jpg" height="150", width="150"><br>
+                    <div class="name">Rima San Pietro</div>
+                    <div class="bio">
+                        Rima's a recent graduate of UC Berkeley who majored in Data Science and minored in Human Rights. I'm interested in the intersection between these two fields, and how data can be used to address and attempt to resolve human rights violations. She's particularly interested in issues surrounding climate change, racial injustice, and animal cruelty.
+                    </div> 
+                </div>
+
+                <div class="ppl-container">
+                    <img class="item" src="bio/zoey.png" height="150", width="150"><br>
+                    <div class="name">Zoey Mengzhu Sun</div>
+                    <div class="bio">
+                        Hey nice to meet you! I am a third year CS major student and I like healthy life :)
+                    </div> 
+                </div>
+
+                <div>
+                    <img class="item" src="bio/kaelan.png" height="150", width="150"><br>
+                    <div class="name">Kaelan Nettleship</div>
+                </div>
+
+                <div class="ppl-container">
+                    <img class="item" src="bio/shelden.png" height="150", width="150"><br>
+                    <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;Shelden Shi</div>
+                    <div class="bio">
+                        Hi my name is Shelden. I am a student at Berkeley studying Computer Science and Cognitive Science. I am passionated about applying technology to improve people's everyday life. In this project, I am a part of the Neuronet and Cloud team. I help building data pipelines in Microsoft Azure and training CNN (Convolutional Neural Network) models.
+                    </div> 
+                </div>
+
+                <div class=ppl-container>
+                    <img class="item" src="bio/vrishab.jpg" height="150", width="150"><br>
+                    <div class="name">Vrishab Madduri</div>
+                    <div class="bio">
+                        I'm a third-year at Cal studying IEOR and EECS. My interests include the intersection between hardware and ML, optimization, and data science. In my free time, I like to play spikeball, watch football and basketball, and hike with friends.
+                    </div>
+                </div>
+
+                <div class="ppl-container">
+                    <img class="item" src="bio/jasper.jpg" height="150", width="150"><br>
+                    <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jasper Hu</div>
+                    <div class="bio">
+                        Hi! I'm a junior CS major working on developing the Neural Net for this project. In my free time, I like listening to music, drinking tea, and playing video games with my friends.
+                    </div> 
+                </div>
+
+                <div>
+                    <img class="item" src="bio/jessica.jpg" height="150", width="150"><br>
+                    <div class="name">&nbsp;&nbsp;Jessica Garcia</div>
+                </div>
+
+                <div class="ppl-container">
+                    <img class="item" src="bio/steven.png" height="150", width="150"><br>
+                    <div class="name">&nbsp;Steven Chen</div>
+                    <div class="bio">
+                        Hey everyone! I’m a second-year from New Jersey studying Computer Science and Cognitive Science. For this research project I’m working in the App Development Team!
+                    </div> 
+                </div>
+
+                <div>
+                    <img class="item" src="bio/varun.jpg" height="150", width="150"><br>
+                    <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Varun Jadia</div>
+                </div>
+                <div>
+                    <img class="item" src="bio/karina.jpg" height="150", width="150"><br>
+                    <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Karina Le</div>
+                </div>
             </div>
+            
+
+
             <br><br><br>
         </div>
         </a>
