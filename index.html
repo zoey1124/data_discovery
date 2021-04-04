@@ -71,7 +71,7 @@
             }
             .words {
                 /* top right bottom left */
-                padding: 0px 50px 20px 50px;
+                padding: 0px 100px 20px 100px;
             }
             .fall2020{
                 /* top right bottom left */
@@ -195,6 +195,9 @@
                 background-color: rgb(79, 57, 36); /* Add a dark-grey background on hover */
                 color: white;
             }
+            footer {
+                margin-top: 50px;
+            }
         </style>
     </head>
  
@@ -202,9 +205,9 @@
         <div class="menu">
             <div class="desktop" id="desktop"><a href="#Introduction">Introduction</a></div>
             <div class="desktop" id="desktop"><a href="#Data">Data Collection</a></div>
-            <div class="desktop" id="desktop"><a href="#Progress">Progress</a></div>
+            <!-- <div class="desktop" id="desktop"><a href="#Progress">Progress</a></div> -->
             <div class="desktop" id="desktop"><a href="#Team">Meet our Team</a></div>
-            <div class="desktop" id="desktop"><a href="fall2020.html">Archive</a></div>
+            <div class="desktop" id="desktop"><a href="fall2020.html">Fall 2020</a></div>
             </div>
         </div>
 
@@ -212,7 +215,6 @@
             <header><h1><b>Project AEI</b></h1></header>
             <div class="words">
                 <p>Using A.I. and Real-Time Data for the Development of an early warning system for public safety and the recognition of emotions.</p>
-             
                 <p>The main objective of this project is to use emotion recognition software to both predict physical behaviors and to create a mindfulness platform.</p>
             </div>
         </div>
@@ -224,10 +226,11 @@
                 </div>
                 <div class="words">
                     <p>
-                    Human beings have a rather unique ability to discern the emotional states of one another via their unconscious perception, processing, and identification of the specific acoustic features associated with particular emotions. 
-                    <br><br/>This is especially true in the case of emotional states that are rooted in aggression. We know this to be the case because similar suggestions have been made by the likes of Klaus Scherer who suggested that emotional states like fear and anger could be associated with a higher vocal pitch due to high levels of epinephrine in the body that cause the vocal cords to tremble. 
-                    <br><br/>Thus, Scherer observed that the trembling of the vocal cords produced a higher pitch than was typical of speech generated in a state of rest or non-arousal. Scherer’s findings led to the basis of computationally understood and discerned emotion being measured and perceived on a basis of “valence and arousal”; Our findings aim to set a new paradigm for the computational understanding of emotion.  
-                    <br><br/>This project aimed to identify the acoustic features associated with aggression in police officers and citizens and determine whether one could use vocal cues to predict violent behavior, on the part of the officers towards citizens. In essence, we wanted to prove that the voice can be used as a tool to predict human behavior in order to find and potentially prevent situations of police brutality. 
+                        Human beings have a rather unique ability to discern the emotional states of one another via their unconscious perception, processing, and identification of the specific acoustic features associated with particular emotions.
+                        <br><br>This project aims to use a neural network to identify the acoustic features associated with the positive and negative emotions of police officers, citizens, and general individuals to determine whether one could use vocal cues and real-time acoustic feature analysis to predict violent behavior, on the part of police officers towards citizens, before it happens. 
+                        <br><br>However, the uses of the speech emotion recognition software that we are developing can extend beyond its potential use as a tool to predict violence, it also has the potential to serve as the backbone for services that can enhance the human experience, and allow individuals to live happier and healthier lives.
+                        <br><br>With this in mind, this project also assesses how a tool that allows people to have a more comprehensive understanding of their emotional states can and will impact the delivery and effectiveness of both mindfulness resources, and a given person’s experience using any particular service or device. 
+                        <br><br>Project AEI aims to close the gap between man and machine through the development of artificial emotional intelligence, a tool that will allow artificial intelligence to understand the emotions of the humans they interact with.    
                     </p>
                 </div>
             </div>
@@ -240,23 +243,20 @@
                 </div>
                 <div class="words">
                 <p>
-                For this project, we collected video clips of police-citizen interactions from YouTube. Each video was required to:
-                <br><br/>- Contain an interaction between a police officer and citizen
-                <br><br/>- Contain dialogue (from either the police officer or citizen, not a third party)
-                <br><br/>To do this, we scraped video URLs of police interactions (primarily police body cam videos) from YouTube. We then implemented a script that identified dialogue within each video by utilizing their associated auto generated captions and split the videos into 1 - 5 seconds segments. Each of these clips was stored in a Microsoft Azure Blob Storage instance. We acknowledge that since we relied on YouTube data as our source of police/citizen interactions, there may be sample bias. 
+                    The data sets used for the training of our high accuracy neural network consists of approximately 10,000 open-source audio files, sourced from datasets like TESS, that we organized and annotated in accordance with the 18 emotions that are universal across the face, voice, and brain. The list of said emotions comes from the paper: Semantic Space Theory: A Computational Approach to Emotion. 
                 </p>  
                 </div>          
             </div>
         </a>
 
-        <a name="Progress">
+        <!-- <a name="Progress">
             <div class="Progress">
                 <div class="titles">
                     <h2>Progress</h2>
                 </div>
 
                 <div class="fall2020">
-                    <a href="fall2020.html"><p>Check what we did in Fall 2020!</p></a>
+                    <a href="fall2020.html"><p>Check out what we did in Fall 2020!</p></a>
                 </div>
 
                 <div class="pic-words-container">
@@ -284,7 +284,7 @@
                 </div>
 
             </div>
-        </a>
+        </a> -->
 
         <a name="Team">
         <div class="Team">
@@ -371,6 +371,10 @@
             <br><br><br>
         </div>
         </a>
+
+        <footer>
+        
+        </footer>
 
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
 
