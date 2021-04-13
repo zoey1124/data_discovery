@@ -38,15 +38,16 @@
                 display: inline-block;
                 /* top right bottom left */
                 padding: 20px 20px 20px 40px;
-                transition: 0.3s;
+                transition: 0.8s;
             }
             #desktop:hover {
                 background-color: rgba(119, 97, 76, 0.536); /* Add a dark-grey background on hover */
                 color: white;
             }
-            .bgimg {
-                background: url(cover.JPEG);
+            #bgimg {
+                /* background: url(cover.JPEG); */
                 background-position: center;
+                transition: 0.3s;
                 background-size: cover;
                 color: #ffffff;
                 height: 80%;
@@ -211,7 +212,7 @@
             </div>
         </div>
 
-        <div class="bgimg">
+        <div id="bgimg">
             <header><h1><b>Project AEI</b></h1></header>
             <div class="words">
                 <p>Using A.I. and Real-Time Data for the Development of an early warning system for public safety and the recognition of emotions.</p>
@@ -381,6 +382,22 @@
 
 
         <script>
+            // change background image in every 4 secs
+            var images = ["cover/cover0.JPEG", "cover/cover1.jpg", "cover/cover2.jpg", "cover/cover3.jpg",
+                            "cover/cover4.jpg", "cover/cover5.jpg", "cover/cover6.jpg", "cover/coer7.jpg"];
+
+            var imageHead = document.getElementById("bgimg");
+            
+            var i = 0;
+            function nextBackground() {
+                imageHead.style.backgroundImage = "url(" + images[i] + ")";
+                i = i + 1;
+                if (i == images.length-1) { i =  0;}
+            }
+            // use setInterval to call this function every 4000 ms = 4s
+            setInterval(nextBackground, 4000);
+
+
             //Get the button:
             mybutton = document.getElementById("myBtn");
 
